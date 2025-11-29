@@ -1,0 +1,195 @@
+## ARRAYS IN PYTHON
+## ARRAYS Example are the collection of the books
+## all are next to each other and no gap between them
+# Each index has the unique index between them .
+## ## same data types are stored in continous location
+## Each array has the unique index
+## Why do we need??
+## to store a large number of the variables store collection of data.
+## So,we create array and get the element using their unique number
+
+## 1-d array -> 1 row
+## 2-d array -> more than 1 rows multiple columns and the multiple rows
+##2-d compose of 1-d array
+## 3-d array
+import array
+
+import numpy as np
+
+my_array=array.array('i')
+print(my_array)
+my_array1=array.array('i',[1,2,3,4])
+print(my_array1)
+
+print(len(my_array1))
+
+import numpy as np
+arr=np.array([1,2,3,4],dtype=int)
+
+print(arr)
+## time complexity of creating the empty array is 0(1)
+## space complexity id 0(1)
+## with teh elements in the array it is 0(n) as well as the space complexity 0(n)
+
+## INSERTION OF ELEMENTS TO ARRAY
+
+my_array1.insert(0,6)
+my_array1.insert(2,9)
+# space complexity to inserting the element into the array model is 0(1)
+## while time complexity os 0(n)
+print(my_array1)
+
+## TRAVERSAL ORDER
+## VISITING THE ATT ELEMENT SOF ARRAY
+from array import *
+arr1=array('i',[1,2,3,4,5,6])
+arr2=array('d',[1.3,1.5,1.6])
+def traverse_array(array):
+    for i in array:  ##0(n)
+        print(i)  ## o(1)
+## overall 0(1)
+traverse_array(arr1)
+## ************************ACCESSing AN ElMENT in ARRAY
+## index are used to access the value in an array
+##my_array[0]="a",
+def access_element(array,index):
+    if index > len(array):## 0(1)
+        print("There is not any element in the Index")##  0(1)
+    else:
+        print(array[index])##   0(1)
+## SO THE TIME COMPLEXITY IS CONSTANT 0(1)
+access_element(arr1,9)
+#If we put the length of the array greater than the elements in the array then ir erturn false
+
+##*********************Searching for an Element in the array
+## can be performed using the linear search
+import array
+
+my_array_1=array.array('i',[1,2,3,4])
+def linear_search(arr,target):
+     for i in range(len(arr)):
+         if arr[i]== target:
+             return i
+     return -1
+print(linear_search(my_array_1,5))
+## space complexity is 0(1)
+
+## ************************DELETE AN ELEMENT FROM AN ARRAY
+arr1.remove(1)
+arr1.remove(4)
+## time complexity is 0(n)
+## Space complexity is 0(1)
+print(arr1)
+##                             T.C                S.C
+## creating an empty array     0(1)               0(1)
+## Creating                    0(n)               0(n)
+##Inserting a value            0(n)               0(1)
+#Traversing                    0(n)               0(1)
+#Accessing a given cell        0(1)               0(1)
+#Seacrhing a value             0(n)               0(1)
+## Deleting a given value      0(n)               0(1)
+
+from array import *
+my_arr=array('i',[1,2,3,4,5])
+print(my_arr)
+for i in my_arr:
+    print(i)
+print("STEP 2")
+print(my_arr[0])
+print("Step 3")
+my_arr.append(0)
+print(my_arr)
+## insert we add element at any point in array
+print("step4")
+my_arr.insert(0,11)
+print(my_arr)
+## extend array
+print("step 5")
+my_array_1=array('i',[10,11,12])
+my_arr.extend(my_array_1)
+print(my_arr)
+print("step 6")
+templist=[20,21,22]
+my_arr.fromlist(templist)
+print(my_arr)
+print("step 7")
+my_arr.remove(22)
+print(my_arr)
+print("step 8")
+my_arr.pop()
+print(my_arr)
+print("Step 9")
+print(my_arr.index(11))
+print("step 10")
+my_arr.reverse()
+print(my_arr)
+print("step 11")
+print(my_arr.buffer_info()) ## used to give information abput array
+print("step 12")
+print(my_arr.count(11))
+print(" Conver Array to Stringstep13")
+strtemp=my_arr.tobytes()
+print(strtemp)
+ints=array('i')
+ints.frombytes(strtemp)
+print(strtemp)
+print("Step 13")
+print(my_arr.tolist())
+print("step 14 SLICING THE ELEMENTS")
+print(my_arr[1:4])
+### 2  DIMENSIONAL ARRAY
+# two dimensional array are used to perform  the  operations on the columnd and the rows
+import numpy as np
+two_D_array =np.array([[11,15,10,6],[10,14,11,5],[12,17,12,8],[15,18,14,9]])
+print(two_D_array)
+
+## insertion
+# time complexity is o(mn)
+new2_array=np.insert(two_D_array,0,[[1,2,3,4]],axis=1)
+print(new2_array)## axis =1 termed as the columns
+new2_array=np.append(two_D_array,[[1,2,3,4]],axis=0)
+print(new2_array)
+
+## ACCESSING THE ELEMENT IN 2-D ARRAY
+## i represent the row index and the j represent the column index
+def accessElements(array,rowIndex,colIndex):
+    if rowIndex >= len(array) and colIndex>=len(array[0]):##   0(1)
+        print("Incorrect Index")##    0(1)
+    else:
+        print(array[rowIndex][colIndex])##     0(1)
+accessElements(two_D_array,1,2)
+##*******************TRAVERSAL 2-D ARRAY*********************
+## len(array[0]) return the no. of columns
+## len(array) return the no. of rows
+def traverse2Darray(array):
+    for i in range(len(array)):  ## o(mn)
+        for j in range(len(array[0])): ##o(n)
+            print(array[i][j])    ## O(1)
+## space complexity 0(1)
+traverse2Darray(two_D_array)
+
+# seacrhing of element in the array
+def search_2d_array(array,value):         ## space memory 0(1) as no extra memory id required for the genartion of 2-d matrix
+    for i in range(len(array)):       ##0(mn)
+        for j in range(len(array)):   ##0(n)
+            if array[i][j]==value:    ## 0(1)
+                return 'the value is located at index'+str(i)+" "+str(j)
+    return 'the element is not found'
+
+search_2d_array(two_D_array,14)
+
+## DELETION OF 2D ARRAY
+## it requires the 0(mn) as time and the 0(mn) as the space complexity for the array.
+
+new_2d_array=np.delete(two_D_array,0,axis=0)
+print(new_2d_array)
+##***********************FOR 2D************************************ 
+##                             T.C                S.C
+## creating an empty array     0(1)               0(1)
+## Creating                    0(mn)              0(mn)
+##Inserting a value            0(mn)              0(mn)
+#Traversing                    0(mn)              0(1)
+#Accessing a given cell        0(1)               0(1)
+#Seacrhing a value             0(mn)              0(1)
+## Deleting a given value      0(mn)              0(mn)
+
